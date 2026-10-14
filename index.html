@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NU-Connect | NextUtility Treatment</title>
+<style>
+:root{--bg:#f1f5f9;--card:#fff;--tx:#0f172a;--mu:#64748b;--bd:#e2e8f0;--ac:#16a34a;--ac2:#0ea5e9;--in:#fff;--ok:#dcfce7;--okt:#166534;--er:#fee2e2;--ert:#991b1b;--wn:#fef3c7;--wnt:#92400e;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1220;--card:#111a2e;--tx:#e5e7eb;--mu:#94a3b8;--bd:#25314a;--in:#0b1220;--ok:#0f3a22;--okt:#86efac;--er:#451a1a;--ert:#fca5a5;--wn:#3b2a0b;--wnt:#fcd34d;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0b1220;--card:#111a2e;--tx:#e5e7eb;--mu:#94a3b8;--bd:#25314a;--in:#0b1220;--ok:#0f3a22;--okt:#86efac;--er:#451a1a;--ert:#fca5a5;--wn:#3b2a0b;--wnt:#fcd34d;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.5}
+header{background:var(--card);border-bottom:1px solid var(--bd);padding:12px 16px;display:flex;align-items:center;gap:12px}
+.ic{width:36px;height:36px;border-radius:11px;background:linear-gradient(to top right,#22c55e,#0ea5e9);display:flex;align-items:center;justify-content:center;flex:none}
+.ic svg{width:19px;height:19px}
+.brand b{display:block;font-size:17px;letter-spacing:-.02em;line-height:1.1}
+.brand span{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ac);font-weight:600}
+.pill{margin-left:auto;font-size:12px;color:var(--mu);border:1px solid var(--bd);border-radius:99px;padding:3px 10px;white-space:nowrap}
+main{max-width:720px;margin:0 auto;padding:20px 16px 40px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:20px;margin-bottom:16px}
+h1{font-size:22px;margin:0 0 4px;letter-spacing:-.02em}
+h2{font-size:16px;margin:0 0 10px}
+p{margin:0 0 12px;color:var(--mu);font-size:14px}
+label{display:block;font-size:13px;font-weight:600;margin:12px 0 4px}
+input,select{width:100%;padding:11px 12px;border:1px solid var(--bd);border-radius:10px;background:var(--in);color:var(--tx);font:inherit;font-size:16px}
+input:focus,select:focus{outline:2px solid var(--ac);outline-offset:1px}
+.hint{font-size:12px;color:var(--mu);margin-top:4px}
+button{margin-top:18px;width:100%;padding:12px;border:0;border-radius:10px;background:linear-gradient(to right,#16a34a,#0ea5e9);color:#fff;font:inherit;font-weight:600;font-size:15px;cursor:pointer}
+button.ghost{background:none;color:var(--mu);border:1px solid var(--bd);margin-top:10px}
+.msg{border-radius:10px;padding:10px 12px;font-size:13px;margin-top:14px}
+.er{background:var(--er);color:var(--ert)}.ok{background:var(--ok);color:var(--okt)}.wn{background:var(--wn);color:var(--wnt)}
+.hide{display:none}
+.row{display:flex;align-items:center;gap:10px;padding:10px 0;border-top:1px solid var(--bd);font-size:14px}
+.row:first-of-type{border-top:0}
+.tag{margin-left:auto;font-size:11px;padding:2px 8px;border-radius:99px;background:var(--ok);color:var(--okt);white-space:nowrap}
+.tag.lock{background:var(--er);color:var(--ert)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:6px}
+.kv{font-size:12px;color:var(--mu)}.kv b{display:block;font-size:14px;color:var(--tx);word-break:break-word}
+@media(max-width:480px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+<div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20a10 10 0 0010-10 25.9 25.9 0 00-1.04-7.281 1 1 0 00-1.755-.325C15.833 5.5 13 5.5 9.8 6.1A7 7 0 0011 20"/><path d="M2 21a5 5 0 012.911-4.544C7.613 15.212 8.351 15.24 11 13"/></svg></div>
+<div class="brand"><b>NU-Connect</b><span>Interní informační systém</span></div>
+<div class="pill">Pouze pro zaměstnance</div>
+</header>
+<main>
+
+<section id="reg">
+<div class="card">
+<h1>Vytvoření účtu nováčka</h1>
+<p>Vítejte v NextUtility Treatment. Po vytvoření účtu získáte přístup k interní komunikaci, oznámením vedení a kalendáři společnosti.</p>
+<label for="fn">Jméno a příjmení</label>
+<input id="fn" autocomplete="name" placeholder="např. Jan Novotný">
+<label for="em">Pracovní e-mail</label>
+<input id="em" type="email" autocomplete="email" placeholder="jmeno@nextutility.cz">
+<label for="dv">Divize</label>
+<select id="dv"><option value="">Vyberte divizi…</option><option>Plánování</option><option>Laboratoř</option><option>Bezpečnost</option><option>Organizační</option><option>Logistika</option></select>
+<label for="pw">Heslo</label>
+<input id="pw" type="password" autocomplete="new-password" placeholder="Alespoň 8 znaků">
+<label for="pw2">Heslo znovu</label>
+<input id="pw2" type="password" autocomplete="new-password">
+<label for="cd">Registrační kód nováčka</label>
+<input id="cd" autocapitalize="characters" placeholder="NU-0000-XXXX">
+<div class="hint">Kód najdete na uvítací kartě v průvodci nováčka firmou.</div>
+<div id="err" class="msg er hide"></div>
+<button id="go" type="button">Vytvořit účet</button>
+</div>
+<p style="text-align:center;font-size:12px">Používáním systému souhlasíte se sledováním komunikace dle interních pravidel společnosti.</p>
+</section>
+
+<section id="dash" class="hide">
+<div class="card">
+<div class="msg ok" style="margin:0 0 14px">✔ Účet byl úspěšně vytvořen. Vítejte ve společnosti NextUtility Treatment!</div>
+<h1 id="hello">Dobrý den</h1>
+<p>Váš účet je aktivní. Níže najdete své přístupové údaje a komunikační kanály.</p>
+<div class="grid">
+<div class="kv">Zaměstnanecké ID<b id="eid"></b></div>
+<div class="kv">Pracovní e-mail<b id="eml"></b></div>
+<div class="kv">Divize<b id="div"></b></div>
+<div class="kv">Stav účtu<b>Aktivní, zkušební doba</b></div>
+</div>
+</div>
+<div class="card">
+<h2>Komunikační kanály</h2>
+<div class="row"><span>📢 Oznámení vedení</span><span class="tag">jen ke čtení</span></div>
+<div class="row"><span>💬 NU-Talk (interní chat)</span><span class="tag">aktivní</span></div>
+<div class="row"><span>✉️ NU-Mail (firemní pošta)</span><span class="tag">aktivní</span></div>
+<div class="row"><span>🧪 Laboratoře</span><span class="tag lock">uzamčeno</span></div>
+<div class="row"><span>🔒 Bezpečnostní divize</span><span class="tag lock">uzamčeno</span></div>
+</div>
+<div class="card">
+<h2>Nová oznámení</h2>
+<div class="msg wn" style="margin:0 0 10px"><b>Vedení:</b> Připomínáme, že pravidelné užívání přípravků společnosti je součástí pracovních povinností.</div>
+<div class="msg wn" style="margin:0 0 10px"><b>Bezpečnost:</b> Dotazy ke složení přípravků směřujte výhradně bezpečnostní divizi. Zveřejňování takových dotazů na sociálních sítích je zakázáno.</div>
+<div class="msg wn" style="margin:0"><b>HR:</b> Nováčci jsou povinni potvrdit absolvování úvodního školení do konce zkušební doby.</div>
+</div>
+<button class="ghost" id="out" type="button">Odhlásit se</button>
+</section>
+
+</main>
+<script>
+(function(){
+var CODE="NU-7421-VITA";
+function $(i){return document.getElementById(i)}
+function err(t){var e=$("err");e.textContent=t;e.classList.remove("hide")}
+$("go").addEventListener("click",function(){
+var n=$("fn").value.trim(),m=$("em").value.trim(),d=$("dv").value,p=$("pw").value,p2=$("pw2").value,c=$("cd").value.trim().toUpperCase();
+if(n.split(/\s+/).length<2)return err("Zadejte jméno i příjmení.");
+if(!/^\S+@\S+\.\S+$/.test(m))return err("Zadejte platný pracovní e-mail.");
+if(!d)return err("Vyberte svou divizi.");
+if(p.length<8)return err("Heslo musí mít alespoň 8 znaků.");
+if(p!==p2)return err("Hesla se neshodují.");
+if(c!==CODE)return err("Neplatný registrační kód nováčka. Zkontrolujte uvítací kartu.");
+$("hello").textContent="Dobrý den, "+n;
+$("eml").textContent=m;$("div").textContent=d;
+$("eid").textContent="NU-"+(100000+Math.floor(Math.random()*899999));
+$("reg").classList.add("hide");$("dash").classList.remove("hide");window.scrollTo(0,0)});
+$("out").addEventListener("click",function(){location.reload()});
+})();
+</script>
+</body>
+</html>
